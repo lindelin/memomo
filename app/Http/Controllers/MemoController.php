@@ -43,12 +43,14 @@ class MemoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Memo  $memo
+     * @param  \App\Memo $memo
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function show(Memo $memo)
     {
-        //
+        $this->authorize('canAccess', [$memo]);
+        return view('templates.memos.show')->with(compact('memo'));
     }
 
     /**

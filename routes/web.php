@@ -18,3 +18,4 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'MemoController@index')->name('home');
+Route::get('/memos/{memo}', 'MemoController@show')->name('memos.show');
