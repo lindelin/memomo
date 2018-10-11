@@ -14,11 +14,19 @@
                             </div>
                         @endif
 
-                        <ul>
-                            @foreach($memos as $memo)
-                                <li>{{ $memo->title }}</li>
-                            @endforeach
-                        </ul>
+                        @foreach($memos as $memo)
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ $memo->title }}</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">
+                                        Created At: {{ $memo->created_at }}　Updated At: {{ $memo->updated_at }}
+                                    </h6>
+                                    <p class="card-text">{{ $memo->contents }}</p>
+                                    <a href="#" class="btn btn-primary">View</a>
+                                </div>
+                            </div>
+                            <br>
+                        @endforeach
                     </div>
                 </div>
             </div>
