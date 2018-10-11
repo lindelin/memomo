@@ -27,4 +27,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * My Memos
+     * One To Many
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function memos()
+    {
+        return $this->hasMany(Memo::class, 'user_id', 'id');
+    }
 }
