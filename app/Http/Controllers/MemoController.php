@@ -68,11 +68,13 @@ class MemoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Memo  $memo
+     * @param  \App\Memo $memo
      * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function edit(Memo $memo)
     {
+        $this->authorize('canAccess', [$memo]);
         return view('templates.memos.edit')->with(compact('memo'));
     }
 
@@ -83,6 +85,7 @@ class MemoController extends Controller
      * @param  \App\Memo $memo
      * @return \Illuminate\Http\Response
      * @throws \Illuminate\Validation\ValidationException
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
     public function update(Request $request, Memo $memo)
     {
@@ -90,6 +93,8 @@ class MemoController extends Controller
             'title' => 'required|string|max:30',
             'contents' => 'required|string',
         ]);
+
+        $this->authorize('canAccess', [$memo]);
 
         $memo->title = $request->input('title');
         $memo->contents = $request->input('contents');
@@ -107,6 +112,8 @@ class MemoController extends Controller
      */
     public function destroy(Memo $memo)
     {
+        $this->authorize('canAccess', [$memo]);
+
         $memo->delete();
 
         return redirect()->route('home')->with('status', 'Delete memo successfully!');
