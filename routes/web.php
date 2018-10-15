@@ -23,3 +23,4 @@ Route::get('/memos/create', 'MemoController@create')->name('memos.create');
 Route::get('/memos/{memo}/edit', 'MemoController@edit')->name('memos.edit');
 Route::get('/memos/{memo}', 'MemoController@show')->name('memos.show');
 Route::put('/memos/{memo}', 'MemoController@update')->name('memos.update');
+Route::delete('/memos/{memo}', 'MemoController@destroy')->name('memos.destroy');

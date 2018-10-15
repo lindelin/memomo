@@ -101,11 +101,14 @@ class MemoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Memo  $memo
+     * @param  \App\Memo $memo
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Memo $memo)
     {
-        //
+        $memo->delete();
+
+        return redirect()->route('home')->with('status', 'Delete memo successfully!');
     }
 }

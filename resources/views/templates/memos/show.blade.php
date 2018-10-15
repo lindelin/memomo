@@ -21,7 +21,35 @@
                     <div class="col-8">
                         <div class="text-right mb-3">
                             <a href="{{ route('memos.edit', compact('memo')) }}" class="btn btn-warning">Edit</a>
-                            <button class="btn btn-danger ml-3">Delete</button>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger ml-3" data-toggle="modal" data-target="#exampleModal">
+                                Delete
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-left">
+                                            This memo will be deleted，are you sure?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{{ route('memos.destroy', compact('memo')) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a href="#" class="btn btn-secondary" data-dismiss="modal">Close</a>
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
