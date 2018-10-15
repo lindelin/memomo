@@ -4,6 +4,14 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <div class="row">
                     <div class="col-4">
                         <div class="text-left">
@@ -12,7 +20,7 @@
                     </div>
                     <div class="col-8">
                         <div class="text-right mb-3">
-                            <button class="btn btn-warning">Edit</button>
+                            <a href="{{ route('memos.edit', compact('memo')) }}" class="btn btn-warning">Edit</a>
                             <button class="btn btn-danger ml-3">Delete</button>
                         </div>
                     </div>
