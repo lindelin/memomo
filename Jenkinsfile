@@ -14,5 +14,10 @@ pipeline {
         sh './vendor/bin/phpunit'
       }
     }
+    stage('release') {
+      steps {
+        archiveArtifacts(artifacts: '/home/lindale/apps', onlyIfSuccessful: true)
+      }
+    }
   }
 }
