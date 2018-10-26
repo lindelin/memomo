@@ -3,9 +3,9 @@ pipeline {
   stages {
     stage('install') {
       steps {
-        sh '''sudo composer install
+        sh '''composer install
 cp .env.example .env
-sudo php artisan key:generate'''
+php artisan key:generate'''
       }
     }
   }
