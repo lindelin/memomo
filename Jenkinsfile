@@ -15,11 +15,21 @@ pipeline {
       }
     }
     stage('release') {
-      steps {
-        sh 'cd /home/lindale/apps/memomo'
-        sh 'sudo git pull'
-        sh 'sudo chown -R www-data:www-data .'
-        sh 'sudo chmod -R 777 storage'
+      parallel {
+        stage('release') {
+          steps {
+            sh '''cd /home/lindale/apps/memomo
+sudo git pull
+sudo chown -R www-data:www-data .
+sudo chmod -R 777 storage'''
+          }
+        }
+        stage('') {
+          steps {
+            sh '''cd /var/www
+sudo mkdir aaaa'''
+          }
+        }
       }
     }
   }
