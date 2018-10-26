@@ -19,7 +19,7 @@ pipeline {
         sh '''cd /home/lindale/apps/memomo
 sudo git pull
 sudo chown -R www-data:www-data .
-sudo chmod -R storage'''
+sudo chmod -R 777 storage'''
       }
     }
   }
