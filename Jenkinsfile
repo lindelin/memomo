@@ -3,9 +3,10 @@ pipeline {
   stages {
     stage('install') {
       steps {
-        sh '''sudo composer install
-cp .env.example .env
-sudo php artisan key:generate'''
+        sh 'composer install'
+        sh 'cp .env.jenkins .env'
+        sh 'php artisan key:generate'
+        sh 'php artisan migrate:fresh --seed'
       }
     }
   }
