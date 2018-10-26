@@ -16,7 +16,7 @@ pipeline {
     }
     stage('release') {
       steps {
-        archiveArtifacts(artifacts: '/home/lindale/apps', onlyIfSuccessful: true)
+        archiveArtifacts '/'
       }
     }
   }
