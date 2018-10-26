@@ -9,5 +9,10 @@ pipeline {
         sh 'php artisan migrate:fresh --seed'
       }
     }
+    stage('test') {
+      steps {
+        sh './vendor/bin/phpunit'
+      }
+    }
   }
 }
