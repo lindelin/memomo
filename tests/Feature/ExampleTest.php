@@ -27,6 +27,9 @@ class ExampleTest extends TestCase
 
         $response = $this->post('/register', $formData);
         $response->assertStatus(302);
-        $this->assertDatabaseHas('users', $formData);
+        $this->assertDatabaseHas('users', [
+            'name' => 'test user',
+            'email' => 'test-user@lindelin.org'
+        ]);
     }
 }
