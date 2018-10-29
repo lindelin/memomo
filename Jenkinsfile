@@ -22,5 +22,10 @@ sudo chown -R www-data:www-data .
 sudo chmod -R 777 storage'''
       }
     }
+    post {
+        always {
+            phpunit 'build/reports/**/*.xml'
+        }
+    }
   }
 }
