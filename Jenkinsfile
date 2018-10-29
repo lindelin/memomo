@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('install') {
+    stage('Install') {
       steps {
         sh 'composer install'
         sh 'cp .env.jenkins .env'
@@ -9,12 +9,12 @@ pipeline {
         sh 'php artisan migrate:fresh --seed'
       }
     }
-    stage('test') {
+    stage('Test') {
       steps {
         sh './vendor/bin/phpunit'
       }
     }
-    stage('release') {
+    stage('Release') {
       steps {
         sh '''cd /home/lindale/apps/memomo
 sudo git pull
