@@ -14,6 +14,6 @@ class MemoController extends Controller
      */
     public function index(Request $request)
     {
-        return response()->json($request->user()->memos, 200);
+        return response()->json($request->user()->memos()->latest()->get(), 200);
     }
 }
