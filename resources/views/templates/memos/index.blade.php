@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="text-right">
-                    <a href="{{ route('memos.create') }}" class="btn btn-lg btn-primary mb-3">+ Add</a>
+                    <a href="{{ route('memos.create') }}" class="btn btn-primary mb-3">New</a>
                 </div>
                 <div class="card">
                     <div class="card-header">Memo list</div>

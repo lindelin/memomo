@@ -44,10 +44,6 @@
                 text-align: center;
             }
 
-            .title {
-                font-size: 84px;
-            }
-
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -60,6 +56,14 @@
 
             .m-b-md {
                 margin-bottom: 30px;
+            }
+
+            .title {
+                font-size: 96px;
+                color: #e15f9e;
+                background: -webkit-linear-gradient(0deg, #e15f9e, #e87b79);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
         </style>
     </head>
